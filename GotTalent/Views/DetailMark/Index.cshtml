@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Models.EF.Criteria>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CriteriaID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CriteriaName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CriteriaChineseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxMark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDelete)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CriteriaID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CriteriaName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CriteriaChineseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxMark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDelete)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
